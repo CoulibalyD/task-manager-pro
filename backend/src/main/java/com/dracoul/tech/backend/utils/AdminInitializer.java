@@ -36,7 +36,7 @@ public class AdminInitializer implements CommandLineRunner {
                     .lastname("User")
                     .email("admin@domain.com")
                     .password(passwordEncoder.encode("adminPassword123"))
-                    .roles(List.of(adminRole))
+                    .role(adminRole) // ⬅️ ici on utilise un seul rôle
                     .enabled(true)
                     .build();
 
@@ -44,5 +44,6 @@ public class AdminInitializer implements CommandLineRunner {
             System.out.println("✅ Admin créé avec succès !");
         }
     }
+
 
 }

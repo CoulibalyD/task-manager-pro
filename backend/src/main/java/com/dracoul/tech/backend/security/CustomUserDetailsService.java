@@ -24,12 +24,15 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé"));
 
-        // Charger les rôles manuellement
-        List<Role> roles = roleRepository.findAllByUserId(user.getId());
-        user.setRoles(roles);
+        // Charger le rôle unique de l'utilisateur
+        Role role = userRepository.findRoleByUserId(user.getId())
+                .orElseThrow(() -> new RuntimeException("Rôle non trouvé pour l'utilisateur"));
+
+        user.setRole(role);
 
         return new CustomUserDetails(user);
     }
+
 
 
 }

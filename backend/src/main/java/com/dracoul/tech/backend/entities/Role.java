@@ -4,6 +4,8 @@ import com.dracoul.tech.backend.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -18,4 +20,7 @@ public class Role {
 
     @Enumerated(EnumType.STRING)
     private RoleType name;
+
+    @OneToMany(mappedBy = "role")
+    private List<User> users;
 }

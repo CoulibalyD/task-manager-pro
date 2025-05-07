@@ -36,29 +36,25 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody @Valid LoginRequest request) {
-        Authentication authentication = authenticationManager.authenticate(
+        var authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
 
-        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        User user = userDetails.getUser();
+        var userDetails = (CustomUserDetails) authentication.getPrincipal();
+        var user = userDetails.getUser();
 
-        String token = jwtService.generateToken(user);
+        var token = jwtService.generateToken(user);
 
-        List<String> roles = user.getRoles()
-                .stream()
-                .map(role -> role.getName().name())
-                .toList();
-
-        JwtResponse response = JwtResponse.builder()
+        var response = JwtResponse.builder()
                 .token(token)
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())
                 .email(user.getEmail())
-                .roles(roles)
+                .roles(List.of(user.getRole().getName().name()))
                 .build();
 
         return ResponseEntity.ok(response);
     }
+
 
 }

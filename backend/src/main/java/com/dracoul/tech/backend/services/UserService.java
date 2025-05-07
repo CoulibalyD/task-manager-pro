@@ -34,18 +34,13 @@ public class UserService {
     }
 
     public UserDto toDto(User user) {
-        return UserDto.builder()
-                .id(user.getId())
-                .firstname(user.getFirstname())
-                .lastname(user.getLastname())
-                .email(user.getEmail())
-                .roles(
-                        user.getRoles()
-                                .stream()
-                                .map(role -> role.getName().name())
-                                .toList()
-                )
-                .build();
+        UserDto dto = new UserDto();
+        dto.setId(user.getId());
+        dto.setFirstname(user.getFirstname());
+        dto.setLastname(user.getLastname());
+        dto.setEmail(user.getEmail());
+        dto.setRole(user.getRole().getName().name());
+        return dto;
     }
 
 

@@ -21,7 +21,7 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto dto, Principal principal) {
-        Long userId = extractUserIdFromPrincipal(principal); // à implémenter selon ta logique
+        Long userId = extractUserIdFromPrincipal(principal);
         return ResponseEntity.ok(taskService.createTask(dto, userId));
     }
 
