@@ -1,0 +1,52 @@
+
+#Recuperer tout les users
+GET {{apiUrl}}/users
+Authorization: Bearer {{Admintoken}}
+Content-Type: application/json
+
+{}
+
+###
+#Recuperer tout un user
+
+GET {{apiUrl}}/users/2
+Authorization: Bearer {{Admintoken}}
+Content-Type: application/json
+
+{}
+
+###
+
+#Editer un user
+PUT {{apiUrl}}/users/3
+Authorization: Bearer {{Admintoken}}
+Content-Type: application/json
+
+{
+  "firstname": "OusmaneBa_",
+  "lastname": "DialloBA___",
+  "email": "dialloba@gmail.com"
+}
+
+###
+
+#Editer mot de passe
+PUT {{apiUrl}}/users/3/password
+Authorization: Bearer {{Admintoken}}
+Content-Type: application/json
+
+{
+  "oldPassword": "dialloba",
+  "newPassword": "diallo"
+}
+
+###
+
+#Suppprimer un user
+DELETE {{apiUrl}}/users/3
+Authorization: Bearer {{Admintoken}}
+Content-Type: application/json
+
+{}
+
+###

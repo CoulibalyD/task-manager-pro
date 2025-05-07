@@ -1,0 +1,36 @@
+
+#Enregistrement__________
+POST {{apiUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "firstname": "Fatoumata",
+  "lastname": "Fernadez",
+  "email": "fernadez@gmail.com",
+  "password": "fernadez123",
+  "role": "USER"
+}
+
+###
+
+#Authentification___________
+POST {{apiUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "fernadez@gmail.com",
+  "password": "fernadez123"
+}
+
+###
+
+#Login administration____________________
+POST {{apiUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@domain.com",
+  "password": "adminPassword123"
+}
+
+###

@@ -1,0 +1,11 @@
+POST {{apiUrl}}/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZXJuYWRlekBnbWFpbC5jb20iLCJpZCI6MSwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTc0NjUzNDU0MSwiZXhwIjoxNzQ2NjIwOTQxfQ.rMacmUTpybyN5OXsGMirSp-_rXsSdBcoC7sR5SNPm70
+Content-Type: application/json
+
+{
+  "title": "Créer l'API REST",
+  "description": "Développer tous les endpoints de l'application",
+  "dueDate": "2025-05-06 11:20:23"
+}
+
+###
