@@ -47,8 +47,8 @@ public class AuthController {
 
         var response = JwtResponse.builder()
                 .token(token)
-                .firstname(user.getFirstname())
-                .lastname(user.getLastname())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
                 .email(user.getEmail())
                 .roles(List.of(user.getRole().getName().name()))
                 .build();

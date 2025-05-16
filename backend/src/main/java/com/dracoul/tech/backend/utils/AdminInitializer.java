@@ -32,8 +32,8 @@ public class AdminInitializer implements CommandLineRunner {
                     .orElseThrow(() -> new RuntimeException("Le rôle ADMIN n'existe pas."));
 
             User admin = User.builder()
-                    .firstname("Admin")
-                    .lastname("User")
+                    .firstName("Admin")
+                    .lastName("User")
                     .email("admin@domain.com")
                     .password(passwordEncoder.encode("adminPassword123"))
                     .role(adminRole) // ⬅️ ici on utilise un seul rôle

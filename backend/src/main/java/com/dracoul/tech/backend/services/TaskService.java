@@ -2,8 +2,11 @@ package com.dracoul.tech.backend.services;
 
 import com.dracoul.tech.backend.dto.TaskDto;
 import com.dracoul.tech.backend.entities.Task;
+import com.dracoul.tech.backend.entities.User;
 import com.dracoul.tech.backend.repositories.TaskRepository;
+import com.dracoul.tech.backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.stream.Collectors;
 public class TaskService {
 
     private final TaskRepository taskRepository;
+    private final UserRepository userRepository;
 
     public TaskDto createTask(TaskDto dto, Long userId) {
         Task task = Task.builder()
@@ -65,4 +69,13 @@ public class TaskService {
                 .completed(task.isCompleted())
                 .build();
     }
+
+    public List<Task> getTasksForCurrentUser(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé"));
+        return taskRepository.findByUserId(user.getId());
+    }
+
 }
+
+

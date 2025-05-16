@@ -9,3 +9,22 @@ Content-Type: application/json
 }
 
 ###
+GET {{apiUrl}}/tasks/me
+Authorization: Bearer {{Usertoken}}
+Content-Type: application/json
+
+{}
+
+###
+
+PUT {{apiUrl}}/tasks/4
+Authorization: Bearer {{Admintoken}}
+Content-Type: application/json
+
+{
+  "dueDate": "2025-05-14",
+  "description": "_________z_",
+  "title": "da"
+}
+
+###

@@ -1,11 +1,14 @@
 package com.dracoul.tech.backend.controllers;
 
 import com.dracoul.tech.backend.dto.TaskDto;
+import com.dracoul.tech.backend.entities.Task;
 import com.dracoul.tech.backend.entities.User;
 import com.dracoul.tech.backend.repositories.UserRepository;
 import com.dracoul.tech.backend.services.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -52,4 +55,12 @@ public class TaskController {
 
         return user.getId();
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<List<Task>> getTasksForCurrentUser(@AuthenticationPrincipal UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        List<Task> tasks = taskService.getTasksForCurrentUser(email);
+        return ResponseEntity.ok(tasks);
+    }
 }
+

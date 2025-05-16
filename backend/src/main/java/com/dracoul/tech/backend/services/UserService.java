@@ -36,8 +36,8 @@ public class UserService {
     public UserDto toDto(User user) {
         UserDto dto = new UserDto();
         dto.setId(user.getId());
-        dto.setFirstname(user.getFirstname());
-        dto.setLastname(user.getLastname());
+        dto.setFirstName(user.getFirstName());
+        dto.setLastName(user.getLastName());
         dto.setEmail(user.getEmail());
         dto.setRole(user.getRole().getName().name());
         return dto;
@@ -46,8 +46,8 @@ public class UserService {
 
     public User toEntity(UserDto dto) {
         return User.builder()
-                .firstname(dto.getFirstname())
-                .lastname(dto.getLastname())
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
                 .email(dto.getEmail())
                 .build();
     }
@@ -55,8 +55,8 @@ public class UserService {
     public Optional<User> updateUser(Long id, User userData) {
         return userRepository.findById(id)
                 .map(existingUser -> {
-                    existingUser.setFirstname(userData.getFirstname());
-                    existingUser.setLastname(userData.getLastname());
+                    existingUser.setFirstName(userData.getFirstName());
+                    existingUser.setLastName(userData.getLastName());
                     existingUser.setEmail(userData.getEmail());
                     return userRepository.save(existingUser);
                 });

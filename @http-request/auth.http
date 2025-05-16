@@ -4,9 +4,9 @@ POST {{apiUrl}}/auth/register
 Content-Type: application/json
 
 {
-  "firstname": "Fatoumata",
-  "lastname": "Fernadez",
-  "email": "fernadez@gmail.com",
+  "firstName": "Fatoumata",
+  "lastName": "Fernandez",
+  "email": "fernandez@gmail.com",
   "password": "fernadez123",
   "role": "USER"
 }
@@ -18,7 +18,7 @@ POST {{apiUrl}}/auth/login
 Content-Type: application/json
 
 {
-  "email": "fernadez@gmail.com",
+  "email": "fernandez@gmail.com",
   "password": "fernadez123"
 }
 

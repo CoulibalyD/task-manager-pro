@@ -23,8 +23,8 @@ Authorization: Bearer {{Admintoken}}
 Content-Type: application/json
 
 {
-  "firstname": "OusmaneBa_",
-  "lastname": "DialloBA___",
+  "firstName": "OusmaneBa_",
+  "lastName": "DialloBA___",
   "email": "dialloba@gmail.com"
 }
 
@@ -43,7 +43,7 @@ Content-Type: application/json
 ###
 
 #Suppprimer un user
-DELETE {{apiUrl}}/users/3
+DELETE {{apiUrl}}/users/5
 Authorization: Bearer {{Admintoken}}
 Content-Type: application/json
 

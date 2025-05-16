@@ -3,6 +3,7 @@ package com.dracoul.tech.backend.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,7 +14,8 @@ public class TaskDto {
     private Long id;
     private String title;
     private String description;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dueDate;
+    private LocalDate dueDate;
     private boolean completed;
 }
+
+

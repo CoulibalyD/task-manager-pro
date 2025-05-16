@@ -2,6 +2,8 @@ package com.dracoul.tech.backend.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,9 +21,10 @@ public class Task {
 
     private String title;
 
+    @Column(length = 255)
     private String description;
 
-    private LocalDateTime dueDate;
+    private LocalDate dueDate;
 
     private boolean completed;
 
