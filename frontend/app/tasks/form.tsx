@@ -1,8 +1,8 @@
 "use client";
 
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import axios from 'axios';
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import {getToken} from "@/lib/token";
 
 type Task = {
@@ -22,7 +22,7 @@ export default function TaskForm({
     editing?: boolean;
     onSuccess?: () => void;
 }) {
-    const { register, handleSubmit, setValue } = useForm<Task>({
+    const {register, handleSubmit, setValue} = useForm<Task>({
         defaultValues: {
             title: '',
             description: '',
@@ -44,7 +44,7 @@ export default function TaskForm({
     console.log("TOKEN =>:::::::", token);
 
     const config = {
-        headers: {Authorization:  `Bearer ${token}`},
+        headers: {Authorization: `Bearer ${token}`},
     };
     const onSubmit = async (data: Task) => {
         const payload = {
@@ -63,9 +63,11 @@ export default function TaskForm({
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 p-4 bg-gray-50 dark:bg-gray-900 rounded shadow">
-            <input {...register('title', { required: true })} placeholder="Titre" className="input w-full p-2 border rounded" />
-            <textarea {...register('description')} placeholder="Description" className="textarea w-full p-2 border rounded" />
-            <input type="date" {...register('dueDate')} className="input w-full p-2 border rounded" />
+            <input {...register('title', {required: true})} placeholder="Titre"
+                   className="input w-full p-2 border rounded"/>
+            <textarea {...register('description')} placeholder="Description"
+                      className="textarea w-full p-2 border rounded"/>
+            <input type="date" {...register('dueDate')} className="input w-full p-2 border rounded"/>
             <label className="flex items-center gap-2 text-sm">
                 <input type="checkbox" {...register('completed')} />
                 Tâche terminée
